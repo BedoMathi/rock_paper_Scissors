@@ -1,0 +1,85 @@
+import java.util.*;
+public class rock_paper_scissors {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("\t" + "\t" + "\t" + "\t" + "Welcome to the Game of ROCK-PAPER-SCISSORS");
+        int choice = 0;
+        int min = 1;
+        int max = 3;
+        int rndm;
+        int computer_win_counter=0;
+        int user_win_counter=0;
+        System.out.println("1-ROCK");
+        System.out.println("2-PAPER");
+        System.out.println("3-SCISSORS");
+        System.out.println("Enter 0 to Exit");
+        System.out.println("Enter Choice");
+        while (true) {
+            choice = 0;
+            choice = sc.nextInt();
+            rndm = (int) Math.floor(Math.random() * (max - min + 1) + min);
+            if (choice == 1 && rndm == 1) {
+                System.out.println("Nobody won. TIED!!!!");
+                System.out.println("Enter Choice");
+            }
+            if (choice == 1 && rndm == 2) {
+                System.out.println("Computer Won!!!");
+                System.out.println("Enter Choice");
+                computer_win_counter += 1;
+            }
+            if (choice == 1 && rndm == 3) {
+                System.out.println("User Won!!!");
+                System.out.println("Enter Choice");
+                user_win_counter += 1;
+            }
+            if (choice == 2 && rndm == 1) {
+                System.out.println("User Won!!!");
+                System.out.println("Enter Choice");
+                user_win_counter += 1;
+            }
+            if (choice == 2 && rndm == 2) {
+                System.out.println("Nobody won. TIED!!");
+                System.out.println("Enter Choice");
+            }
+            if (choice == 2 && rndm == 3) {
+                System.out.println("Computer Won!!!");
+                System.out.println("Enter Choice");
+                computer_win_counter += 1;
+            }
+            if (choice == 3 && rndm == 1) {
+                System.out.println("Computer Won!!");
+                System.out.println("Enter Choice");
+                computer_win_counter += 1;
+            }
+            if (choice == 3 && rndm == 2) {
+                System.out.println("User Won!!");
+                System.out.println("Enter Choice");
+                user_win_counter += 1;
+            }
+            if (choice == 3 && rndm == 3) {
+                System.out.println("Nobody won. TIED!!");
+                System.out.println("Enter Choice");
+            }
+            if(choice==0){
+                break;
+            }
+            if(choice>3)
+            {
+                System.out.println("WRONG CHOICE!! Enter Again");
+                System.out.println("Enter Choice");
+                continue;
+            }
+        }
+        System.out.println("The score was COMPUTER-: "+computer_win_counter+" USER-: "+user_win_counter);
+        if(computer_win_counter>user_win_counter){
+            System.out.println("The Computer Won the GAME");
+        }
+        if(user_win_counter>computer_win_counter){
+            System.out.println("The User Won the GAME");
+        }
+        if(computer_win_counter==user_win_counter){
+            System.out.println("Nobody won the GAME. TIED!!!");
+        }
+        System.out.println("*----*----*----*----*----*----GAME ENDED*----*----*----*----*----*----");
+    }
+}
